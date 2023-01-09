@@ -1,0 +1,212 @@
+@font-face {
+    font-family: 'ANTQUAI';
+    src: url(/assets/Fonts/ANTQUAI.TTF);
+}
+
+@font-face {
+    font-family: 'Gabriola';
+    src: url(/assets/Fonts/Gabriola.ttf);
+}
+
+@font-face {
+    font-family: 'Bookosi';
+    src: url(/assets/Fonts/BOOKOSI.TTF);
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+* { 
+    box-sizing: border-box;
+ }
+
+body {
+    font-family: Bookosi;
+}
+
+a {
+    text-decoration: none;
+    
+
+}
+
+a:hover {
+    color: rgb(125, 125, 125);
+}
+
+.custom-btn {
+    max-width: 75%;
+    margin: auto;
+}
+
+.title-0 {
+    font-weight: bold;
+}
+
+.title-1 {
+    color: rgb(125, 125, 125);
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.title-2 {
+    font-weight: bold;
+    font-size: x-large;
+    color: rgb(136, 136, 136);
+}
+
+.title-3 {
+    color: azure;
+    font-weight: bold;
+    font-size: xx-large;
+    margin-bottom: 0;
+
+}
+
+.title-4 {
+    font-weight: bold;
+    font-size: x-large;
+    color:aliceblue;
+}
+
+.text-1 {
+    color: rgba(30, 30, 30, 0.615);
+    font-weight: bold;
+    font-size: medium;
+}
+
+.text-2 {
+    color: rgba(30, 30, 30, 0.615);
+    font-weight: bold;
+    font-size: large;
+
+}
+
+.text-3 {
+    color: aliceblue;
+    font-weight: normal;
+    font-size: medium;
+
+}
+
+.icon-1 {
+    max-width: 42px;
+    max-height: 42px;
+}
+
+.img-1 {
+    max-width: 520px;
+    margin-left: 64px;
+    margin-right: 64px;
+}
+
+.small-capital {
+    color: rgb(136, 136, 136);
+    font-weight: bold;
+    font-size: medium;
+}
+
+
+
+.about-me {
+    color: #fff;
+    font-weight: bolder;
+    font-size: xx-large;
+}
+
+.more-content {
+    color: #fff;
+    font-weight: bold;
+    font-size: medium;
+    margin-top: 62px;
+
+
+}
+
+.galleria {
+    width: 800px;
+    height: 400px;
+    background: rgb(255, 255, 255);
+    margin: auto;
+
+}
+
+.galleria-2 {
+    width: 800px;
+    height: 400px;
+    background: rgb(255, 255, 255);
+    margin: auto;
+
+}
+
+.portfolio-item {
+    margin-top: 164px;
+}
+
+@media only screen and (max-width: 780px) {
+    .galleria,.galleria-2 {
+        width: 440px;
+        height: 220px;
+        margin: auto;
+    }
+}
+
+
+.bg-dark {
+    min-height: 280px;
+}
+.footer-p {
+    margin-top: 200px;
+}
+
+.skill-bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.526), rgba(0, 0, 0, 0.762)), url("/assets/Images/bg/planet-flip.jpeg");
+    height: 150vh;
+
+
+
+    /* Height Parallax Image */
+    min-height: 250px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-whatido {
+    background: linear-gradient(rgba(255, 255, 255, 0.701), rgba(255, 255, 255, 0.811)), url("/assets/Images/bg/bg-whatido.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-image {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/Images/bg/bg-home.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+
+    /* Height Parallax Image */
+    /*min-height: 250px;*/
+    /* Create the parallax scrolling effect */
+    /*background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;*/
+
+}
+
+.bg-education {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/assets/Images/bg/bg-education.png");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
