@@ -125,33 +125,11 @@ a:hover {
 
 }
 
-.galleria {
-    width: 800px;
-    height: 400px;
-    background: rgb(255, 255, 255);
-    margin: auto;
-
-}
-
-.galleria-2 {
-    width: 800px;
-    height: 400px;
-    background: rgb(255, 255, 255);
-    margin: auto;
-
-}
 
 .portfolio-item {
     margin-top: 164px;
 }
 
-@media only screen and (max-width: 780px) {
-    .galleria,.galleria-2 {
-        width: 440px;
-        height: 220px;
-        margin: auto;
-    }
-}
 
 
 .bg-dark {
