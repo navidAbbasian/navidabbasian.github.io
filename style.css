@@ -143,7 +143,7 @@ a:hover {
 }
 
 .skill-bg {
-    background: linear-gradient(rgba(0, 0, 0, 0.526), rgba(0, 0, 0, 0.762)), url("/assets/Images/bg/planet-flip.jpeg");
+    background: linear-gradient(rgba(0, 0, 0, 0.526), rgba(0, 0, 0, 0.762)), url("/assets/Images/bg/Damavand.22.jpg");
     height: 160vh;
 
 
@@ -158,7 +158,8 @@ a:hover {
 }
 
 .bg-whatido {
-    background: linear-gradient(rgba(255, 255, 255, 0.701), rgba(255, 255, 255, 0.811)), url("/assets/Images/bg/bg-whatido.jpg");
+    background-color: rgba(192, 192, 192, 0.301);
+    /* background: linear-gradient(rgba(255, 255, 255, 0.701), rgba(255, 255, 255, 0.811)), url("/assets/Images/bg/bg-whatido.jpg"); */
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -166,7 +167,7 @@ a:hover {
 }
 
 .bg-image {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/Images/bg/bg-home.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/Images/bg/bg-me-16-9.jpg");
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -185,7 +186,7 @@ a:hover {
 }
 
 .bg-education {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/assets/Images/bg/bg-education.png");
+    background: linear-gradient(to bottom, rgb(44, 57, 48) 50%, rgb(63, 79, 68) 100%);
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
