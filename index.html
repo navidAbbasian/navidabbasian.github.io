@@ -1,437 +1,559 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Navid Abbasian</title>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
-  <script src="galleria-1.6.1/dist/galleria.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-    integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <link href="/style.css" rel="stylesheet">
+  <title>Navid Abbasian | Back-End Developer</title>
+  <meta name="description" content="Navid Abbasian - Back-End Developer specializing in Laravel, PHP, and scalable web applications">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            primary: '#0a0a0a',
+            secondary: '#171717',
+            accent: '#3b82f6',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .skill-item {
+      transition: all 0.3s ease;
+    }
+    
+    .skill-item:hover {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+    }
+    
+    .nav-link {
+      position: relative;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .portfolio-card {
+      transition: all 0.4s ease;
+    }
+    
+    .portfolio-card:hover {
+      transform: scale(1.02);
+    }
+    
+    .portfolio-card:hover .portfolio-overlay {
+      opacity: 1;
+    }
+    
+    .portfolio-overlay {
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+  </style>
 </head>
 
-<body>
+<body class="bg-primary text-white font-sans antialiased">
 
-   <!--     menu    -->
-
-   <nav class="navbar bg-light fixed-top">
-    <div class="container-fluid">
-    <div class="d-flex align-items-center">
-  <div style="position: relative; width: 50px; height: 50px; overflow: hidden;">
-    <img src="/assets/Images/Navan.png" alt="navan" class="img-fluid"
-      style="position: absolute; top: 50%; left: 50%; width: 300%; height: 300%; transform: translate(-50%, -50%); object-fit: cover;" />
-  </div>
-
-      <a class="navbar-brand ms-2 title-0" href="#">Navid Abbasian</a>
-    </div>
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-        aria-controls="offcanvasNavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Navid Abbasian</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-primary/90 backdrop-blur-md border-b border-white/5">
+    <div class="max-w-6xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <a href="#" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-accent">
+            <img src="./assets/Images/Navan.png" alt="Navid Abbasian" class="w-full h-full object-cover">
+          </div>
+          <span class="font-semibold text-lg">Navid Abbasian</span>
+        </a>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#about" class="nav-link text-gray-400 hover:text-white transition-colors">About</a>
+          <a href="#skills" class="nav-link text-gray-400 hover:text-white transition-colors">Skills</a>
+          <a href="#portfolio" class="nav-link text-gray-400 hover:text-white transition-colors">Portfolio</a>
+          <a href="#contact" class="nav-link text-gray-400 hover:text-white transition-colors">Contact</a>
         </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#About">About Me</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#Skill">Skills</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#Education">Education</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#Portfolio">Portfolio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#Contact">Contact Me</a>
-            </li>
-          </ul>
-
-          <section class="mb-4">
-
-            <!-- Twitter -->
-            <a class="mt-5 btn btn-outline-dark btn-floating m-1" href="https://twitter.com/Navid_abn" role="button"><i class="fab fa-twitter"></i></a>
-    
-            <!-- Linkedin -->
-            <a class="mt-5 btn btn-outline-dark btn-floating m-1" href="https://www.linkedin.com/in/navid-abbasian/" role="button"><i class="fab fa-linkedin-in"></i></a>
-    
-            <!-- Github -->
-            <a class="mt-5 btn btn-outline-dark btn-floating m-1" href="https://github.com/navidAbbasian" role="button"><i class="fab fa-github"></i></a>
-          </section>
-
+        
+        <!-- Mobile Menu Button -->
+        <button id="menuBtn" class="md:hidden text-gray-400 hover:text-white">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+      
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 border-t border-white/10 pt-4">
+        <div class="flex flex-col gap-4">
+          <a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a>
+          <a href="#skills" class="text-gray-400 hover:text-white transition-colors">Skills</a>
+          <a href="#portfolio" class="text-gray-400 hover:text-white transition-colors">Portfolio</a>
+          <a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
         </div>
       </div>
     </div>
   </nav>
 
-  <!--    home and home bg     -->
+  <!-- Hero Section -->
+  <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/80 to-primary z-10"></div>
+      <img src="./assets/Images/bg/bg-me-16-9.jpg" alt="" class="w-full h-full object-cover opacity-30">
+    </div>
+    
+    <div class="max-w-6xl mx-auto px-6 py-32 relative z-20">
+      <div class="text-center">
+        <p class="text-accent font-medium mb-4 tracking-wider uppercase text-sm">Hello World</p>
+        <h1 class="text-5xl md:text-7xl font-bold mb-6">
+          I am <span class="gradient-text">Navid Abbasian</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-400 mb-8">Back-End Developer (Laravel)</p>
+        <p class="text-gray-500 max-w-xl mx-auto mb-12 leading-relaxed">
+          The Best View Comes After The Hardest Climb
+        </p>
+        
+        <div class="flex items-center justify-center gap-4 flex-wrap">
+          <a href="#portfolio" class="px-8 py-3 bg-accent hover:bg-blue-600 rounded-full font-medium transition-all">
+            View My Work
+          </a>
+          <a href="#contact" class="px-8 py-3 border border-white/20 hover:border-white/40 rounded-full font-medium transition-all">
+            Contact Me
+          </a>
+        </div>
+        
+        <!-- Social Links -->
+        <div class="flex items-center justify-center gap-6 mt-12">
+          <a href="https://github.com/navidAbbasian" target="_blank" class="text-gray-500 hover:text-white transition-colors text-xl">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/navid-abbasian/" target="_blank" class="text-gray-500 hover:text-white transition-colors text-xl">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://twitter.com/Navid_abn" target="_blank" class="text-gray-500 hover:text-white transition-colors text-xl">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <i class="fas fa-chevron-down text-gray-500"></i>
+    </div>
+  </section>
 
-  <div class="bg-image mt-5">
-
-
-    <div class="container d-flex justify-content-center mt-5">
-      <div class="container text-center mt-5">
-        <div class="row mt-5">
-          <div class="col mt-5 text-start">
-            <p class="title-2">"Hello Word"</p>
+  <!-- About Section -->
+  <section id="about" class="py-24 bg-secondary">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-16">
+        <!-- About Me -->
+        <div>
+          <h2 class="text-3xl font-bold mb-8">
+            About <span class="gradient-text">Me</span>
+          </h2>
+          <div class="space-y-4 text-gray-400 leading-relaxed">
+            <p>Born in 1996, I started programming in PHP language in university.</p>
+            <p>While studying in university I was doing web development with PHP language and Laravel framework.</p>
+            <p>After university, I started working full-time as a Laravel developer and continuously updated myself with modern topics like Docker, microservices, and similar technologies.</p>
           </div>
-          <div class="col mt-5"></div>
-          <div class="row row-cols-1">
-            <div class="col text-start">
-              <p class="about-me text-start">I Am Navid Abbasian<br>Back-End Developer (Laravel)</p>
+        </div>
+        
+        <!-- What I Do -->
+        <div>
+          <h2 class="text-3xl font-bold mb-8">
+            What I <span class="gradient-text">Do</span>
+          </h2>
+          <div class="space-y-6">
+            <div class="p-6 rounded-xl bg-primary/50 border border-white/5 card-hover">
+              <h3 class="font-semibold text-lg mb-2">Build Software Structure</h3>
+              <p class="text-gray-500 text-sm">Building a software structure involves designing a scalable and maintainable architecture that organizes code efficiently.</p>
+            </div>
+            <div class="p-6 rounded-xl bg-primary/50 border border-white/5 card-hover">
+              <h3 class="font-semibold text-lg mb-2">Database Design</h3>
+              <p class="text-gray-500 text-sm">Database design involves structuring data efficiently to ensure scalability, integrity, and optimal performance.</p>
+            </div>
+            <div class="p-6 rounded-xl bg-primary/50 border border-white/5 card-hover">
+              <h3 class="font-semibold text-lg mb-2">API Design</h3>
+              <p class="text-gray-500 text-sm">API design and development focus on creating efficient, secure, and scalable interfaces for seamless system communication.</p>
             </div>
           </div>
-
         </div>
       </div>
     </div>
+  </section>
 
-
-
-    <!--   home about me    -->
-
-    <div class="container text-center mt-5">
-      <div class="row row-cols-2">
-        <div class="row text-start">
-          <div class="col-sm small-capital"><span>MORE <a class="title-4" href="#About">About Me</a></span></div>
-          <div class="col-sm small-capital"><span>VIEW <a class="title-4" href="#Portfolio">My Works</a></span></div>
-          <div class="col-sm small-capital"><span>CONTACT <a class="title-4" href="#Contact">Me</a></span></div>
+  <!-- Skills Section -->
+  <section id="skills" class="py-24 relative overflow-hidden">
+    <!-- Background -->
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-gradient-to-b from-primary via-primary/95 to-primary z-10"></div>
+      <img src="./assets/Images/bg/Damavand.22.jpg" alt="" class="w-full h-full object-cover opacity-10">
+    </div>
+    
+    <div class="max-w-6xl mx-auto px-6 relative z-20">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4">
+          My <span class="gradient-text">Skills</span>
+        </h2>
+        <p class="text-gray-500">Technologies and expertise I work with</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Skill Items -->
+        <div class="skill-item p-6 rounded-xl border border-white/5 bg-secondary/50">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+              <i class="fab fa-laravel text-accent text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold mb-1">Laravel Development</h3>
+              <p class="text-gray-500 text-sm">10 years of experience in Laravel, from solo development to leading a team.</p>
+            </div>
+          </div>
         </div>
-        <div class="col"></div>
+        
+        <div class="skill-item p-6 rounded-xl border border-white/5 bg-secondary/50">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-database text-accent text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold mb-1">MySQL Expertise</h3>
+              <p class="text-gray-500 text-sm">Proficient in MySQL with deep knowledge of database optimization and management.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="skill-item p-6 rounded-xl border border-white/5 bg-secondary/50">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-plug text-accent text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold mb-1">API Design and Development</h3>
+              <p class="text-gray-500 text-sm">Experienced in designing and developing RESTful and scalable APIs.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="skill-item p-6 rounded-xl border border-white/5 bg-secondary/50">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-cubes text-accent text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold mb-1">Microservices Architecture</h3>
+              <p class="text-gray-500 text-sm">Transitioned from MVC to microservices, applying scalable and modular design.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="skill-item p-6 rounded-xl border border-white/5 bg-secondary/50">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+              <i class="fab fa-git-alt text-accent text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold mb-1">Git and GitHub Mastery</h3>
+              <p class="text-gray-500 text-sm">Expert in version control, branching strategies, and team collaboration.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="skill-item p-6 rounded-xl border border-white/5 bg-secondary/50">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+              <i class="fab fa-docker text-accent text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold mb-1">Docker Proficiency</h3>
+              <p class="text-gray-500 text-sm">One year of experience in containerization, optimizing deployments and environments.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="skill-item p-6 rounded-xl border border-white/5 bg-secondary/50">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-users text-accent text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold mb-1">Team Leadership</h3>
+              <p class="text-gray-500 text-sm">Two years of experience managing a Laravel and JavaScript development team.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="skill-item p-6 rounded-xl border border-white/5 bg-secondary/50">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-rocket text-accent text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold mb-1">Fast Learning</h3>
+              <p class="text-gray-500 text-sm">Quickly adapts to new technologies and concepts, ensuring continuous improvement.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="skill-item p-6 rounded-xl border border-white/5 bg-secondary/50">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-project-diagram text-accent text-xl"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold mb-1">Design Patterns</h3>
+              <p class="text-gray-500 text-sm">Using patterns like Singleton, Dependency Injection, and more.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="mb-5 mt-5 row justify-content-center text-center">
-      <p class="text-center more-content">" The Best View Comes After The Hardest Climb "</p>
-    </div>
-
-
-  </div>
-
-  <!--  What I Do  -->
-
-  <div id="About" class="">
-    <div class="row">
-      <div class="bg-whatido pt-5 ps-5 col-md-6 col-lg-6 col-xl-6 col-12 col-sm-12"><span class="title-1">What I
-          Do.</span>
-
-        <div class="row mt-5">
-          <p class="title-2">Build Software Structure</p>
-          <p class="text-1">Building a software structure involves designing a scalable and maintainable architecture that organizes code efficiently. It includes selecting patterns, defining modules, and ensuring seamless integration of components.</p>
-
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="py-24 bg-secondary">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4">
+          My <span class="gradient-text">Portfolio</span>
+        </h2>
+        <p class="text-gray-500">Projects I have worked on</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Caltex Music Website - With Images -->
+        <div class="portfolio-card group rounded-2xl overflow-hidden bg-primary border border-white/5">
+          <div class="relative aspect-video overflow-hidden">
+            <img src="./assets/Images/portfolio/Caltex/02_caltex-home.png" alt="Caltex Music Website" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent flex items-end p-6">
+              <a href="https://caltex.com" target="_blank" class="px-4 py-2 bg-accent rounded-full text-sm font-medium hover:bg-blue-600 transition-colors">
+                Visit Website <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-semibold text-lg mb-2">Caltex Music Website</h3>
+            <p class="text-gray-500 text-sm mb-4">Migrated website from WordPress to Laravel custom panel. Responsible for database architecture and team collaboration.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">Laravel</span>
+              <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">MySQL</span>
+              <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">MVC</span>
+            </div>
+          </div>
         </div>
-        <div class="row">
-          <span>
-            <p class="title-2">Database Design</p>
-            <p class="text-1">Database design involves structuring data efficiently to ensure scalability, integrity, and optimal performance. It includes defining schemas, relationships, indexing, and normalization to support seamless data management.</p>
-          </span>
+        
+        <!-- Noghte.io -->
+        <div class="portfolio-card group rounded-2xl overflow-hidden bg-primary border border-white/5">
+          <div class="relative aspect-video overflow-hidden bg-gradient-to-br from-purple-600/20 to-blue-600/20 flex items-center justify-center">
+            <div class="text-center">
+              <i class="fas fa-globe text-5xl text-accent/50 mb-4"></i>
+              <p class="text-gray-400 font-medium">noghte.io</p>
+            </div>
+            <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent flex items-end p-6">
+              <a href="https://noghte.io" target="_blank" class="px-4 py-2 bg-accent rounded-full text-sm font-medium hover:bg-blue-600 transition-colors">
+                Visit Website <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-semibold text-lg mb-2">Noghte.io</h3>
+            <p class="text-gray-500 text-sm mb-4">A comprehensive web platform built with modern technologies and scalable architecture.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">Laravel</span>
+              <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">API</span>
+            </div>
+          </div>
         </div>
-        <div class="row">
-          <span>
-            <p class="title-2">API Design</p>
-            <p class="text-1">API design and development focus on creating efficient, secure, and scalable interfaces for seamless system communication. It involves defining endpoints, authentication, and data structures to ensure smooth integration.</p>
-          </span>
+        
+        <!-- SkyGate Tourism -->
+        <div class="portfolio-card group rounded-2xl overflow-hidden bg-primary border border-white/5">
+          <div class="relative aspect-video overflow-hidden bg-gradient-to-br from-green-600/20 to-teal-600/20 flex items-center justify-center">
+            <div class="text-center">
+              <i class="fas fa-plane text-5xl text-accent/50 mb-4"></i>
+              <p class="text-gray-400 font-medium">skygate.com</p>
+            </div>
+            <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent flex items-end p-6">
+              <a href="https://skygate.com" target="_blank" class="px-4 py-2 bg-accent rounded-full text-sm font-medium hover:bg-blue-600 transition-colors">
+                Visit Website <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-semibold text-lg mb-2">SkyGate Tourism</h3>
+            <p class="text-gray-500 text-sm mb-4">Tourism and travel platform with booking capabilities and comprehensive travel services.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">Laravel</span>
+              <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">Tourism</span>
+            </div>
+          </div>
         </div>
-
-      </div>
-
-      <!--  More About Me  -->
-
-      <div class="pt-5 ps-5 col-md-6 col-lg-6 col-xl-6 col-12 col-sm-12 my-sm-4 my-4"><span class="title-1">More About
-          Me</span>
-        <div class="row">
-          <p class="mt-5 text-2">
-            Born In 1996,<br> I started programming in PHP language in university<br> While studying in university I was
-            doing web development with PHP language and Laravel framework.<br>
-            After university, I started working full-time as a Laravel developer and continuously updated myself with modern topics like Docker, microservices, and similar technologies.</p>
-          </p>
-          <!-- <button type="button" class="text-center justify-content-center custom-btn mt-5 btn btn-dark">Download CV</button> -->
+        
+        <!-- Tarazava Financial -->
+        <div class="portfolio-card group rounded-2xl overflow-hidden bg-primary border border-white/5">
+          <div class="relative aspect-video overflow-hidden bg-gradient-to-br from-yellow-600/20 to-orange-600/20 flex items-center justify-center">
+            <div class="text-center">
+              <i class="fas fa-chart-line text-5xl text-accent/50 mb-4"></i>
+              <p class="text-gray-400 font-medium">tarazava.noghte.io</p>
+            </div>
+            <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent flex items-end p-6">
+              <a href="https://tarazava.noghte.io" target="_blank" class="px-4 py-2 bg-accent rounded-full text-sm font-medium hover:bg-blue-600 transition-colors">
+                Visit Website <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-semibold text-lg mb-2">Tarazava Financial</h3>
+            <p class="text-gray-500 text-sm mb-4">Financial platform with secure transactions and comprehensive financial management tools.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">Laravel</span>
+              <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">Finance</span>
+            </div>
+          </div>
         </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!--  Skills  -->
-  <div id="Skill" class="skill-bg">
-
-    <div class="container">
-      <div class="title-3 ps-5 pt-5">Skills</div>
-
-
-      <div class="ps-5 pt-5 row">
-        <p class="title-4">
-          Laravel Development
-        </p>
-
-        <p class="text-3">
-          - 10 years of experience in Laravel, from solo development to leading a team.
-        </p>
-      </div>
-
-      <div class="ps-5 row">
-        <p class="title-4">
-          MySQL Expertise
-        </p>
-
-        <p class="text-3">
-          - Proficient in MySQL with deep knowledge of database optimization and management.
-        </p>
-      </div>
-
-      <div class="ps-5 row">
-        <p class="title-4">
-          API Design & Development
-        </p>
-
-        <p class="text-3">
-          - Experienced in designing and developing RESTful and scalable APIs.
-        </p>
-      </div>
-
-
-      <div class="ps-5 row">
-        <p class="title-4">
-          Microservices Architecture
-        </p>
-
-        <p class="text-3">
-          - Transitioned from MVC to microservices, applying scalable and modular design.
-        </p>
-      </div>
-
-      <div class="ps-5 row">
-        <p class="title-4">
-          Git & GitHub Mastery
-        </p>
-
-        <p class="text-3">
-          - Expert in version control, branching strategies, and team collaboration using Git & GitHub.
-        </p>
-      </div>
-
-      <div class="ps-5 row">
-        <p class="title-4">
-          Docker Proficiency
-        </p>
-
-        <p class="text-3">
-          - One year of experience in containerization, optimizing deployments and environments.
-        </p>
-      </div>
-
-      <div class="ps-5 row">
-        <p class="title-4">
-          Team Leadership
-        </p>
-
-        <p class="text-3">
-          - Two years of experience managing a Laravel and JavaScript development team.
-        </p>
-      </div>
-
-      <div class="ps-5 row">
-        <p class="title-4">
-          Fast Learning
-        </p>
-
-        <p class="text-3">
-          - Quickly adapts to new technologies and concepts, ensuring continuous improvement.
-        </p>
-      </div>
-
-     
-
-
-      <div class="ps-5 row">
-        <p class="title-4">
-          Architectures
-        </p>
-
-        <p class="text-3">
-          -I use MVVM & MVP for android applications and MVC for back side web sites
-        </p>
-      </div>
-
-      <div class="ps-5 row">
-        <p class="title-4">
-          Design Patterns
-        </p>
-
-        <p class="text-3">
-          - Allways I try to learn and use Design Patterns for my applications and web sites like singletone, Dependency Injection and ...
-        </p>
+        
+        <!-- TeleTrip -->
+        <div class="portfolio-card group rounded-2xl overflow-hidden bg-primary border border-white/5">
+          <div class="relative aspect-video overflow-hidden bg-gradient-to-br from-red-600/20 to-pink-600/20 flex items-center justify-center">
+            <div class="text-center">
+              <i class="fas fa-ticket-alt text-5xl text-accent/50 mb-4"></i>
+              <p class="text-gray-400 font-medium">teletrip.ir</p>
+            </div>
+            <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent flex items-end p-6">
+              <a href="https://teletrip.ir" target="_blank" class="px-4 py-2 bg-accent rounded-full text-sm font-medium hover:bg-blue-600 transition-colors">
+                Visit Website <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-semibold text-lg mb-2">TeleTrip</h3>
+            <p class="text-gray-500 text-sm mb-4">Ticket booking and hotel reservation platform with seamless user experience.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">Laravel</span>
+              <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">Booking</span>
+              <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">API</span>
+            </div>
+          </div>
+        </div>
+        
       </div>
     </div>
+  </section>
 
-
-
-  </div>
-
-
-  <!--  Education  -->
-
-  <!-- <div id="Education" class="bg-education">
-    <div class="container">
-      <div class="ps-5 pt-5 row text-start">
-        <p class="mt-5 title-3">Education</p>
-        <p class="title-4">Graduated in IT major and Studied Android Development</p>
-        <p class="text-3">I studied IT at Karaj Azad University (KIAU)<br>
-          I learned the basics C++ in University and then I started to learn PHP <br>
-          While studying, I did University projects for other Students and develop php website's <br>
-          After finishing the university, I learned Android programming in <a class="title-4" href="#">Seven Learn</a>
-          And after that,
-          Flutter's language too<br>
-          Now my academic studies are over and I am upgrading my knowledge to become a software engineer</p>
+  <!-- Contact Section -->
+  <section id="contact" class="py-24">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-4">
+        Get In <span class="gradient-text">Touch</span>
+      </h2>
+      <p class="text-gray-500 mb-12">Feel free to reach out for collaborations or just a friendly hello</p>
+      
+      <a href="mailto:navidabbasian@gmail.com" class="inline-flex items-center gap-3 text-2xl md:text-3xl font-medium hover:text-accent transition-colors mb-12">
+        <i class="fas fa-envelope"></i>
+        navidabbasian@gmail.com
+      </a>
+      
+      <!-- Social Links -->
+      <div class="flex items-center justify-center gap-6 mt-8">
+        <a href="https://github.com/navidAbbasian" target="_blank" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-accent hover:bg-accent/10 transition-all">
+          <i class="fab fa-github text-xl"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/navid-abbasian/" target="_blank" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-accent hover:bg-accent/10 transition-all">
+          <i class="fab fa-linkedin text-xl"></i>
+        </a>
+        <a href="https://twitter.com/Navid_abn" target="_blank" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-accent hover:bg-accent/10 transition-all">
+          <i class="fab fa-twitter text-xl"></i>
+        </a>
       </div>
-
     </div>
-</div> -->
+  </section>
 
-  <!--  Portfolio  -->
-
-  <!-- <div id="Portfolio" class="container bg-portfolio mt-5">
-    <p class="mt-5 title-1 text-center">Portfolio</p>
-    <p class=" text-1 text-center">Here you can see the projects that I have personally done or do in team.</p>
-  </div>
-
-
-  <div class="portfolio-item p-5">
-
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  <!-- Footer -->
+  <footer class="py-8 border-t border-white/5">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-gray-500 text-sm">2024 Navid Abbasian. All rights reserved.</p>
+        <p class="text-gray-600 text-sm">Back-End Developer | Laravel Specialist</p>
       </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="/assets/Images/portfolio/NikeStore/01_Nike_Store.jpg" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="/assets/Images/portfolio/NikeStore/02_Nike_Store.jpg" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="/assets/Images/portfolio/NikeStore/03_Nike_Store.jpg" class="d-block w-100" alt="...">
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
-
-    <div>
-      <p class="title-2 text-center">
-        <a class="title-1" href="#">Nike Store Android App</a>
-      </p>
-      <p class="text-1 text-center">
-        This program is actually the final project of Seven Learn training course<br>
-        This program is written in Kotlin language and uses the MVVM architecture<br>
-        I learned design patterns like singletone and Dependency Injection in this project<br>
-        Currently I am trying to rewrite this program in Flutter language for make this app for IOS too.
-      </p>
-    </div>
-
-  </div>
-
-  <div class="portfolio-item p-5">
-
-    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="10000">
-          <img src="/assets/Images/portfolio/Caltex/01_caltex-login.png" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item" data-bs-interval="2000">
-          <img src="/assets/Images/portfolio/Caltex/02_caltex-home.png" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="/assets/Images/portfolio/Caltex/03_caltex-playlist.png" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="/assets/Images/portfolio/Caltex/04_caltex-songs.png" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="/assets/Images/portfolio/Caltex/05_caltex-song.png" class="d-block w-100" alt="...">
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-
-    <div>
-      <p class="title-2 text-center">
-        <a class="title-1" href="#">Caltex Music Website</a>
-      </p>
-      <p class="text-1 text-center">This project was about moving the website from WordPress to Laravel custom panel<br>
-        The team I was there was working on it and my responsibility was to work on the database part of the site<br>
-        This work was my first serious experience and I learned MVC architecture while doing it<br>
-        Although I only did part of the project, it was the best experience for me to work in a team on a big project
-      </p>
-    </div>
-
-  </div> -->
-
-  <!--  Footer  -->
-
-  <footer class="bg-dark text-center text-white mt-5">
-    <!-- Grid container -->
-    <div class="container p-4">
-      <!-- Section: Social media -->
-      <section class="mb-4">
-
-        <!-- Twitter -->
-        <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/Navid_abn" role="button"><i class="fab fa-twitter"></i></a>
-
-        <!-- Linkedin -->
-        <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/navid-abbasian/" role="button"><i class="fab fa-linkedin-in"></i></a>
-
-        <!-- Github -->
-        <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/navidAbbasian" role="button"><i class="fab fa-github"></i></a>
-      </section>
-      <!-- Section: Social media -->
-
-      <div id="Contact" class="text-center">
-        Email me at <a class="title-2" href="#">navidabbasian@gmail.com</a> <br>
-        Messeage me at <a class="title-2" href="#">coming soon</a>
-      </div>
-
-      <!-- Copyright -->
-      <div class="footer-p text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-        © 2022 Copyright:
-        <a class=" title-3" href="https://akoteam.ir/">Akoteam.com</a>
-      </div>
-      <!-- Copyright -->
   </footer>
 
+  <!-- Mobile Menu Script -->
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    menuBtn.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Close mobile menu when clicking on a link
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(function(link) {
+      link.addEventListener('click', function() {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 100) {
+        nav.classList.add('shadow-lg');
+      } else {
+        nav.classList.remove('shadow-lg');
+      }
+    });
+  </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
-    </script>
 </body>
 
 </html>
