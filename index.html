@@ -1,72 +1,60 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Navid Abbasian | Back-End Developer</title>
-  <meta name="description" content="Navid Abbasian - Back-End Developer specializing in Laravel, PHP, and scalable web applications">
+  <title>Navid Abbasian</title>
+  <meta name="description" content="Navid Abbasian - Senior Back-End Developer with 10+ years of experience">
   
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-          },
-          colors: {
-            primary: '#0a0a0a',
-            secondary: '#171717',
-            accent: '#3b82f6',
-          }
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: { primary: '#0a0a0a', secondary: '#171717', accent: '#dc2626' }
         }
       }
     }
   </script>
   
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    
     .gradient-text {
-      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      background: linear-gradient(135deg, #dc2626 0%, #f97316 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    
-    .card-hover {
-      transition: all 0.3s ease;
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
     }
-    
-    .card-hover:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    .float-animation { animation: float 3s ease-in-out infinite; }
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(220, 38, 38, 0.3); }
+      50% { box-shadow: 0 0 40px rgba(220, 38, 38, 0.6); }
     }
-    
-    .skill-item {
-      transition: all 0.3s ease;
+    .glow-animation { animation: glow 2s ease-in-out infinite; }
+    .portfolio-card {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-    
-    .skill-item:hover {
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+    .portfolio-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
     }
-    
-    .nav-link {
-      position: relative;
+    .portfolio-card:hover .portfolio-overlay { opacity: 1; }
+    .portfolio-card:hover .portfolio-image { transform: scale(1.1); }
+    .portfolio-overlay {
+      opacity: 0;
+      transition: opacity 0.4s ease;
     }
-    
+    .portfolio-image { transition: transform 0.5s ease; }
+    .nav-link { position: relative; }
     .nav-link::after {
       content: '';
       position: absolute;
@@ -74,29 +62,15 @@
       height: 2px;
       bottom: -4px;
       left: 0;
-      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      background: linear-gradient(135deg, #dc2626 0%, #f97316 100%);
       transition: width 0.3s ease;
     }
-    
-    .nav-link:hover::after {
-      width: 100%;
-    }
-    
-    .portfolio-card {
-      transition: all 0.4s ease;
-    }
-    
-    .portfolio-card:hover {
-      transform: scale(1.02);
-    }
-    
-    .portfolio-card:hover .portfolio-overlay {
-      opacity: 1;
-    }
-    
-    .portfolio-overlay {
-      opacity: 0;
-      transition: opacity 0.4s ease;
+    .nav-link:hover::after { width: 100%; }
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
   </style>
 </head>
@@ -107,32 +81,24 @@
   <nav class="fixed top-0 left-0 right-0 z-50 bg-primary/90 backdrop-blur-md border-b border-white/5">
     <div class="max-w-6xl mx-auto px-6 py-4">
       <div class="flex items-center justify-between">
-        <a href="#" class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-accent">
-            <img src="./assets/Images/Navan.png" alt="Navid Abbasian" class="w-full h-full object-cover">
+        <a href="#" class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-accent glow-animation">
+            <img src="./assets/Images/Navan.png" alt="Navid Abbasian" class="w-full h-full object-cover scale-150">
           </div>
-          <span class="font-semibold text-lg">Navid Abbasian</span>
+          <span class="font-bold text-xl">Navid Abbasian</span>
         </a>
-        
-        <!-- Desktop Menu -->
         <div class="hidden md:flex items-center gap-8">
           <a href="#about" class="nav-link text-gray-400 hover:text-white transition-colors">About</a>
-          <a href="#skills" class="nav-link text-gray-400 hover:text-white transition-colors">Skills</a>
           <a href="#portfolio" class="nav-link text-gray-400 hover:text-white transition-colors">Portfolio</a>
           <a href="#contact" class="nav-link text-gray-400 hover:text-white transition-colors">Contact</a>
         </div>
-        
-        <!-- Mobile Menu Button -->
         <button id="menuBtn" class="md:hidden text-gray-400 hover:text-white">
           <i class="fas fa-bars text-xl"></i>
         </button>
       </div>
-      
-      <!-- Mobile Menu -->
       <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 border-t border-white/10 pt-4">
         <div class="flex flex-col gap-4">
           <a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a>
-          <a href="#skills" class="text-gray-400 hover:text-white transition-colors">Skills</a>
           <a href="#portfolio" class="text-gray-400 hover:text-white transition-colors">Portfolio</a>
           <a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
         </div>
@@ -141,216 +107,74 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
-    <!-- Background Image -->
+  <section class="min-h-screen flex items-center relative overflow-hidden">
     <div class="absolute inset-0 z-0">
-      <div class="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/80 to-primary z-10"></div>
-      <img src="./assets/Images/bg/bg-me-16-9.jpg" alt="" class="w-full h-full object-cover opacity-30">
+      <div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/60 to-transparent z-10"></div>
+      <img src="./assets/Images/bg/bg-me-16-9.jpg" alt="" class="w-full h-full object-cover opacity-60">
     </div>
-    
-    <div class="max-w-6xl mx-auto px-6 py-32 relative z-20">
-      <div class="text-center">
-        <p class="text-accent font-medium mb-4 tracking-wider uppercase text-sm">Hello World</p>
-        <h1 class="text-5xl md:text-7xl font-bold mb-6">
-          I am <span class="gradient-text">Navid Abbasian</span>
-        </h1>
-        <p class="text-xl md:text-2xl text-gray-400 mb-8">Back-End Developer (Laravel)</p>
-        <p class="text-gray-500 max-w-xl mx-auto mb-12 leading-relaxed">
-          The Best View Comes After The Hardest Climb
+    <div class="max-w-6xl mx-auto px-6 py-32 relative z-20 w-full">
+      <div class="text-left max-w-2xl">
+        <p class="text-accent font-medium mb-4 tracking-wider uppercase text-sm flex items-center gap-2">
+          <span class="w-8 h-[2px] bg-accent"></span> Hello World
         </p>
-        
-        <div class="flex items-center justify-center gap-4 flex-wrap">
-          <a href="#portfolio" class="px-8 py-3 bg-accent hover:bg-blue-600 rounded-full font-medium transition-all">
-            View My Work
-          </a>
-          <a href="#contact" class="px-8 py-3 border border-white/20 hover:border-white/40 rounded-full font-medium transition-all">
-            Contact Me
-          </a>
+        <h1 class="text-5xl md:text-7xl font-bold mb-6">I am <span class="gradient-text">Navid Abbasian</span></h1>
+        <p class="text-xl md:text-2xl text-gray-300 mb-4">Back-End Developer</p>
+        <div class="flex items-center gap-4 flex-wrap">
+          <a href="#portfolio" class="px-8 py-3 bg-accent hover:bg-red-700 rounded-full font-medium transition-all hover:scale-105">View My Work</a>
+          <a href="#contact" class="px-8 py-3 border border-accent/50 hover:border-accent hover:bg-accent/10 rounded-full font-medium transition-all">Contact Me</a>
         </div>
-        
-        <!-- Social Links -->
-        <div class="flex items-center justify-center gap-6 mt-12">
-          <a href="https://github.com/navidAbbasian" target="_blank" class="text-gray-500 hover:text-white transition-colors text-xl">
-            <i class="fab fa-github"></i>
+        <div class="flex items-center gap-6 mt-12">
+          <a href="https://github.com/navidAbbasian" target="_blank" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-gray-400 hover:text-accent hover:border-accent transition-all hover:scale-110">
+            <i class="fab fa-github text-xl"></i>
           </a>
-          <a href="https://www.linkedin.com/in/navid-abbasian/" target="_blank" class="text-gray-500 hover:text-white transition-colors text-xl">
-            <i class="fab fa-linkedin"></i>
+          <a href="https://www.linkedin.com/in/navid-abbasian/" target="_blank" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-gray-400 hover:text-accent hover:border-accent transition-all hover:scale-110">
+            <i class="fab fa-linkedin text-xl"></i>
           </a>
-          <a href="https://twitter.com/Navid_abn" target="_blank" class="text-gray-500 hover:text-white transition-colors text-xl">
-            <i class="fab fa-twitter"></i>
+          <a href="https://twitter.com/Navid_abn" target="_blank" class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-gray-400 hover:text-accent hover:border-accent transition-all hover:scale-110">
+            <i class="fab fa-twitter text-xl"></i>
           </a>
         </div>
       </div>
     </div>
-    
-    <!-- Scroll Indicator -->
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-      <i class="fas fa-chevron-down text-gray-500"></i>
+      <i class="fas fa-chevron-down text-accent"></i>
     </div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="py-24 bg-secondary">
+  <section id="about" class="py-20 bg-secondary">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="grid md:grid-cols-2 gap-16">
-        <!-- About Me -->
+      <div class="grid md:grid-cols-2 gap-12">
         <div>
-          <h2 class="text-3xl font-bold mb-8">
-            About <span class="gradient-text">Me</span>
-          </h2>
-          <div class="space-y-4 text-gray-400 leading-relaxed">
-            <p>Born in 1996, I started programming in PHP language in university.</p>
-            <p>While studying in university I was doing web development with PHP language and Laravel framework.</p>
-            <p>After university, I started working full-time as a Laravel developer and continuously updated myself with modern topics like Docker, microservices, and similar technologies.</p>
+          <h2 class="text-3xl font-bold mb-6">About <span class="gradient-text">Me</span></h2>
+          <div class="space-y-4 text-gray-300 leading-relaxed">
+            <p><span class="gradient-text">A</span></h2> programmer with over a decade of experience.</p>
+            <p><span class="gradient-text">A</span></h2> lover of computers and everything related to them.</p>
+            <p><span class="gradient-text">A</span></h2> fan of crypto and decentralization and a long-time gamer.</p>
           </div>
         </div>
-        
-        <!-- What I Do -->
         <div>
-          <h2 class="text-3xl font-bold mb-8">
-            What I <span class="gradient-text">Do</span>
-          </h2>
-          <div class="space-y-6">
-            <div class="p-6 rounded-xl bg-primary/50 border border-white/5 card-hover">
-              <h3 class="font-semibold text-lg mb-2">Build Software Structure</h3>
-              <p class="text-gray-500 text-sm">Building a software structure involves designing a scalable and maintainable architecture that organizes code efficiently.</p>
+          <h2 class="text-3xl font-bold mb-6">What I <span class="gradient-text">Do</span></h2>
+          <div class="space-y-3">
+            <div class="flex items-center gap-3">
+              <i class="fas fa-check text-accent"></i>
+              <span class="text-gray-300">System Architecture and Design</span>
             </div>
-            <div class="p-6 rounded-xl bg-primary/50 border border-white/5 card-hover">
-              <h3 class="font-semibold text-lg mb-2">Database Design</h3>
-              <p class="text-gray-500 text-sm">Database design involves structuring data efficiently to ensure scalability, integrity, and optimal performance.</p>
+            <div class="flex items-center gap-3">
+              <i class="fas fa-check text-accent"></i>
+              <span class="text-gray-300">Database Optimization and Scaling</span>
             </div>
-            <div class="p-6 rounded-xl bg-primary/50 border border-white/5 card-hover">
-              <h3 class="font-semibold text-lg mb-2">API Design</h3>
-              <p class="text-gray-500 text-sm">API design and development focus on creating efficient, secure, and scalable interfaces for seamless system communication.</p>
+            <div class="flex items-center gap-3">
+              <i class="fas fa-check text-accent"></i>
+              <span class="text-gray-300">RESTful API Development</span>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="py-24 relative overflow-hidden">
-    <!-- Background -->
-    <div class="absolute inset-0 z-0">
-      <div class="absolute inset-0 bg-gradient-to-b from-primary via-primary/95 to-primary z-10"></div>
-      <img src="./assets/Images/bg/Damavand.22.jpg" alt="" class="w-full h-full object-cover opacity-10">
-    </div>
-    
-    <div class="max-w-6xl mx-auto px-6 relative z-20">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold mb-4">
-          My <span class="gradient-text">Skills</span>
-        </h2>
-        <p class="text-gray-500">Technologies and expertise I work with</p>
-      </div>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <!-- Skill Items -->
-        <div class="skill-item p-6 rounded-xl border border-white/5 bg-secondary/50">
-          <div class="flex items-start gap-4">
-            <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-              <i class="fab fa-laravel text-accent text-xl"></i>
+            <div class="flex items-center gap-3">
+              <i class="fas fa-check text-accent"></i>
+              <span class="text-gray-300">Microservices Implementation</span>
             </div>
-            <div>
-              <h3 class="font-semibold mb-1">Laravel Development</h3>
-              <p class="text-gray-500 text-sm">10 years of experience in Laravel, from solo development to leading a team.</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="skill-item p-6 rounded-xl border border-white/5 bg-secondary/50">
-          <div class="flex items-start gap-4">
-            <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-              <i class="fas fa-database text-accent text-xl"></i>
-            </div>
-            <div>
-              <h3 class="font-semibold mb-1">MySQL Expertise</h3>
-              <p class="text-gray-500 text-sm">Proficient in MySQL with deep knowledge of database optimization and management.</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="skill-item p-6 rounded-xl border border-white/5 bg-secondary/50">
-          <div class="flex items-start gap-4">
-            <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-              <i class="fas fa-plug text-accent text-xl"></i>
-            </div>
-            <div>
-              <h3 class="font-semibold mb-1">API Design and Development</h3>
-              <p class="text-gray-500 text-sm">Experienced in designing and developing RESTful and scalable APIs.</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="skill-item p-6 rounded-xl border border-white/5 bg-secondary/50">
-          <div class="flex items-start gap-4">
-            <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-              <i class="fas fa-cubes text-accent text-xl"></i>
-            </div>
-            <div>
-              <h3 class="font-semibold mb-1">Microservices Architecture</h3>
-              <p class="text-gray-500 text-sm">Transitioned from MVC to microservices, applying scalable and modular design.</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="skill-item p-6 rounded-xl border border-white/5 bg-secondary/50">
-          <div class="flex items-start gap-4">
-            <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-              <i class="fab fa-git-alt text-accent text-xl"></i>
-            </div>
-            <div>
-              <h3 class="font-semibold mb-1">Git and GitHub Mastery</h3>
-              <p class="text-gray-500 text-sm">Expert in version control, branching strategies, and team collaboration.</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="skill-item p-6 rounded-xl border border-white/5 bg-secondary/50">
-          <div class="flex items-start gap-4">
-            <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-              <i class="fab fa-docker text-accent text-xl"></i>
-            </div>
-            <div>
-              <h3 class="font-semibold mb-1">Docker Proficiency</h3>
-              <p class="text-gray-500 text-sm">One year of experience in containerization, optimizing deployments and environments.</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="skill-item p-6 rounded-xl border border-white/5 bg-secondary/50">
-          <div class="flex items-start gap-4">
-            <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-              <i class="fas fa-users text-accent text-xl"></i>
-            </div>
-            <div>
-              <h3 class="font-semibold mb-1">Team Leadership</h3>
-              <p class="text-gray-500 text-sm">Two years of experience managing a Laravel and JavaScript development team.</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="skill-item p-6 rounded-xl border border-white/5 bg-secondary/50">
-          <div class="flex items-start gap-4">
-            <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-              <i class="fas fa-rocket text-accent text-xl"></i>
-            </div>
-            <div>
-              <h3 class="font-semibold mb-1">Fast Learning</h3>
-              <p class="text-gray-500 text-sm">Quickly adapts to new technologies and concepts, ensuring continuous improvement.</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="skill-item p-6 rounded-xl border border-white/5 bg-secondary/50">
-          <div class="flex items-start gap-4">
-            <div class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-              <i class="fas fa-project-diagram text-accent text-xl"></i>
-            </div>
-            <div>
-              <h3 class="font-semibold mb-1">Design Patterns</h3>
-              <p class="text-gray-500 text-sm">Using patterns like Singleton, Dependency Injection, and more.</p>
+            <div class="flex items-center gap-3">
+              <i class="fas fa-check text-accent"></i>
+              <span class="text-gray-300">Team Leadership and Mentoring</span>
             </div>
           </div>
         </div>
@@ -359,127 +183,123 @@
   </section>
 
   <!-- Portfolio Section -->
-  <section id="portfolio" class="py-24 bg-secondary">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold mb-4">
-          My <span class="gradient-text">Portfolio</span>
-        </h2>
-        <p class="text-gray-500">Projects I have worked on</p>
+  <section id="portfolio" class="py-20 relative overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-gradient-to-b from-primary via-primary/95 to-primary z-10"></div>
+      <img src="./assets/Images/bg/Damavand.22.jpg" alt="" class="w-full h-full object-cover opacity-10">
+    </div>
+    <div class="max-w-6xl mx-auto px-6 relative z-20">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-4">My <span class="gradient-text">Portfolio</span></h2>
+        <p class="text-gray-400">Projects I have worked on</p>
       </div>
       
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         
-        <!-- Caltex Music Website - With Images -->
-        <div class="portfolio-card group rounded-2xl overflow-hidden bg-primary border border-white/5">
+        <!-- Caltex Music -->
+        <div class="portfolio-card group rounded-xl overflow-hidden bg-secondary border border-white/10">
           <div class="relative aspect-video overflow-hidden">
-            <img src="./assets/Images/portfolio/Caltex/02_caltex-home.png" alt="Caltex Music Website" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-            <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent flex items-end p-6">
-              <a href="https://caltex.com" target="_blank" class="px-4 py-2 bg-accent rounded-full text-sm font-medium hover:bg-blue-600 transition-colors">
-                Visit Website <i class="fas fa-arrow-right ml-2"></i>
-              </a>
+            <img src="./assets/Images/portfolio/Caltex/02_caltex-home.png" alt="Caltex Music" class="portfolio-image w-full h-full object-cover">
+            <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-transparent flex items-end p-4">
+              <a href="https://caltex.com" target="_blank" class="px-4 py-2 bg-accent rounded-full text-xs font-bold hover:bg-red-700 transition-all">Visit <i class="fas fa-arrow-right ml-1"></i></a>
             </div>
           </div>
-          <div class="p-6">
-            <h3 class="font-semibold text-lg mb-2">Caltex Music Website</h3>
-            <p class="text-gray-500 text-sm mb-4">Migrated website from WordPress to Laravel custom panel. Responsible for database architecture and team collaboration.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">Laravel</span>
-              <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">MySQL</span>
-              <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">MVC</span>
+          <div class="p-4">
+            <h3 class="font-bold text-base mb-2">Caltex Music</h3>
+            <p class="text-gray-400 text-xs mb-3 line-clamp-2">Music streaming platform - WordPress to Laravel migration with custom admin panel.</p>
+            <div class="flex flex-wrap gap-1">
+              <span class="px-2 py-0.5 bg-accent/20 text-accent text-xs rounded-full">Laravel</span>
+              <span class="px-2 py-0.5 bg-accent/20 text-accent text-xs rounded-full">PHP</span>
+              <span class="px-2 py-0.5 bg-accent/20 text-accent text-xs rounded-full">MySQL</span>
+              <span class="px-2 py-0.5 bg-accent/20 text-accent text-xs rounded-full">API</span>
             </div>
           </div>
         </div>
         
         <!-- Noghte.io -->
-        <div class="portfolio-card group rounded-2xl overflow-hidden bg-primary border border-white/5">
-          <div class="relative aspect-video overflow-hidden bg-gradient-to-br from-purple-600/20 to-blue-600/20 flex items-center justify-center">
-            <div class="text-center">
-              <i class="fas fa-globe text-5xl text-accent/50 mb-4"></i>
-              <p class="text-gray-400 font-medium">noghte.io</p>
+        <div class="portfolio-card group rounded-xl overflow-hidden bg-secondary border border-white/10">
+          <div class="relative aspect-video overflow-hidden bg-gradient-to-br from-accent/20 to-orange-600/20 flex items-center justify-center">
+            <div class="text-center float-animation">
+              <i class="fas fa-globe text-4xl text-accent/60 mb-2"></i>
+              <p class="text-gray-300 font-bold text-sm">noghte.io</p>
             </div>
-            <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent flex items-end p-6">
-              <a href="https://noghte.io" target="_blank" class="px-4 py-2 bg-accent rounded-full text-sm font-medium hover:bg-blue-600 transition-colors">
-                Visit Website <i class="fas fa-arrow-right ml-2"></i>
-              </a>
+            <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-transparent flex items-end p-4">
+              <a href="https://noghte.io" target="_blank" class="px-4 py-2 bg-accent rounded-full text-xs font-bold hover:bg-red-700 transition-all">Visit <i class="fas fa-arrow-right ml-1"></i></a>
             </div>
           </div>
-          <div class="p-6">
-            <h3 class="font-semibold text-lg mb-2">Noghte.io</h3>
-            <p class="text-gray-500 text-sm mb-4">A comprehensive web platform built with modern technologies and scalable architecture.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">Laravel</span>
-              <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">API</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- SkyGate Tourism -->
-        <div class="portfolio-card group rounded-2xl overflow-hidden bg-primary border border-white/5">
-          <div class="relative aspect-video overflow-hidden bg-gradient-to-br from-green-600/20 to-teal-600/20 flex items-center justify-center">
-            <div class="text-center">
-              <i class="fas fa-plane text-5xl text-accent/50 mb-4"></i>
-              <p class="text-gray-400 font-medium">skygate.com</p>
-            </div>
-            <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent flex items-end p-6">
-              <a href="https://skygate.com" target="_blank" class="px-4 py-2 bg-accent rounded-full text-sm font-medium hover:bg-blue-600 transition-colors">
-                Visit Website <i class="fas fa-arrow-right ml-2"></i>
-              </a>
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="font-semibold text-lg mb-2">SkyGate Tourism</h3>
-            <p class="text-gray-500 text-sm mb-4">Tourism and travel platform with booking capabilities and comprehensive travel services.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">Laravel</span>
-              <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">Tourism</span>
+          <div class="p-4">
+            <h3 class="font-bold text-base mb-2">Noghte.io</h3>
+            <p class="text-gray-400 text-xs mb-3 line-clamp-2">Web platform with microservices architecture and scalable infrastructure.</p>
+            <div class="flex flex-wrap gap-1">
+              <span class="px-2 py-0.5 bg-accent/20 text-accent text-xs rounded-full">Laravel</span>
+              <span class="px-2 py-0.5 bg-accent/20 text-accent text-xs rounded-full">Microservices</span>
+              <span class="px-2 py-0.5 bg-accent/20 text-accent text-xs rounded-full">Docker</span>
             </div>
           </div>
         </div>
         
-        <!-- Tarazava Financial -->
-        <div class="portfolio-card group rounded-2xl overflow-hidden bg-primary border border-white/5">
+        <!-- SkyGate -->
+        <div class="portfolio-card group rounded-xl overflow-hidden bg-secondary border border-white/10">
+          <div class="relative aspect-video overflow-hidden bg-gradient-to-br from-teal-600/20 to-green-600/20 flex items-center justify-center">
+            <div class="text-center float-animation" style="animation-delay: 0.5s;">
+              <i class="fas fa-plane text-4xl text-accent/60 mb-2"></i>
+              <p class="text-gray-300 font-bold text-sm">skygate.com</p>
+            </div>
+            <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-transparent flex items-end p-4">
+              <a href="https://skygate.com" target="_blank" class="px-4 py-2 bg-accent rounded-full text-xs font-bold hover:bg-red-700 transition-all">Visit <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-base mb-2">SkyGate Tourism</h3>
+            <p class="text-gray-400 text-xs mb-3 line-clamp-2">Travel platform with booking system and payment gateway integration.</p>
+            <div class="flex flex-wrap gap-1">
+              <span class="px-2 py-0.5 bg-accent/20 text-accent text-xs rounded-full">Laravel</span>
+              <span class="px-2 py-0.5 bg-accent/20 text-accent text-xs rounded-full">Booking</span>
+              <span class="px-2 py-0.5 bg-accent/20 text-accent text-xs rounded-full">Payment</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Tarazava -->
+        <div class="portfolio-card group rounded-xl overflow-hidden bg-secondary border border-white/10">
           <div class="relative aspect-video overflow-hidden bg-gradient-to-br from-yellow-600/20 to-orange-600/20 flex items-center justify-center">
-            <div class="text-center">
-              <i class="fas fa-chart-line text-5xl text-accent/50 mb-4"></i>
-              <p class="text-gray-400 font-medium">tarazava.noghte.io</p>
+            <div class="text-center float-animation" style="animation-delay: 1s;">
+              <i class="fas fa-chart-line text-4xl text-accent/60 mb-2"></i>
+              <p class="text-gray-300 font-bold text-sm">tarazava.noghte.io</p>
             </div>
-            <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent flex items-end p-6">
-              <a href="https://tarazava.noghte.io" target="_blank" class="px-4 py-2 bg-accent rounded-full text-sm font-medium hover:bg-blue-600 transition-colors">
-                Visit Website <i class="fas fa-arrow-right ml-2"></i>
-              </a>
+            <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-transparent flex items-end p-4">
+              <a href="https://tarazava.noghte.io" target="_blank" class="px-4 py-2 bg-accent rounded-full text-xs font-bold hover:bg-red-700 transition-all">Visit <i class="fas fa-arrow-right ml-1"></i></a>
             </div>
           </div>
-          <div class="p-6">
-            <h3 class="font-semibold text-lg mb-2">Tarazava Financial</h3>
-            <p class="text-gray-500 text-sm mb-4">Financial platform with secure transactions and comprehensive financial management tools.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">Laravel</span>
-              <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">Finance</span>
+          <div class="p-4">
+            <h3 class="font-bold text-base mb-2">Tarazava Financial</h3>
+            <p class="text-gray-400 text-xs mb-3 line-clamp-2">Financial platform with secure transactions and reporting dashboard.</p>
+            <div class="flex flex-wrap gap-1">
+              <span class="px-2 py-0.5 bg-accent/20 text-accent text-xs rounded-full">Laravel</span>
+              <span class="px-2 py-0.5 bg-accent/20 text-accent text-xs rounded-full">Finance</span>
+              <span class="px-2 py-0.5 bg-accent/20 text-accent text-xs rounded-full">Security</span>
             </div>
           </div>
         </div>
         
         <!-- TeleTrip -->
-        <div class="portfolio-card group rounded-2xl overflow-hidden bg-primary border border-white/5">
-          <div class="relative aspect-video overflow-hidden bg-gradient-to-br from-red-600/20 to-pink-600/20 flex items-center justify-center">
-            <div class="text-center">
-              <i class="fas fa-ticket-alt text-5xl text-accent/50 mb-4"></i>
-              <p class="text-gray-400 font-medium">teletrip.ir</p>
+        <div class="portfolio-card group rounded-xl overflow-hidden bg-secondary border border-white/10">
+          <div class="relative aspect-video overflow-hidden bg-gradient-to-br from-pink-600/20 to-red-600/20 flex items-center justify-center">
+            <div class="text-center float-animation" style="animation-delay: 1.5s;">
+              <i class="fas fa-ticket-alt text-4xl text-accent/60 mb-2"></i>
+              <p class="text-gray-300 font-bold text-sm">teletrip.ir</p>
             </div>
-            <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent flex items-end p-6">
-              <a href="https://teletrip.ir" target="_blank" class="px-4 py-2 bg-accent rounded-full text-sm font-medium hover:bg-blue-600 transition-colors">
-                Visit Website <i class="fas fa-arrow-right ml-2"></i>
-              </a>
+            <div class="portfolio-overlay absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-transparent flex items-end p-4">
+              <a href="https://teletrip.ir" target="_blank" class="px-4 py-2 bg-accent rounded-full text-xs font-bold hover:bg-red-700 transition-all">Visit <i class="fas fa-arrow-right ml-1"></i></a>
             </div>
           </div>
-          <div class="p-6">
-            <h3 class="font-semibold text-lg mb-2">TeleTrip</h3>
-            <p class="text-gray-500 text-sm mb-4">Ticket booking and hotel reservation platform with seamless user experience.</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">Laravel</span>
-              <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">Booking</span>
-              <span class="px-3 py-1 bg-accent/10 text-accent text-xs rounded-full">API</span>
+          <div class="p-4">
+            <h3 class="font-bold text-base mb-2">TeleTrip</h3>
+            <p class="text-gray-400 text-xs mb-3 line-clamp-2">Ticket booking and hotel reservation with real-time availability.</p>
+            <div class="flex flex-wrap gap-1">
+              <span class="px-2 py-0.5 bg-accent/20 text-accent text-xs rounded-full">Laravel</span>
+              <span class="px-2 py-0.5 bg-accent/20 text-accent text-xs rounded-full">Booking</span>
+              <span class="px-2 py-0.5 bg-accent/20 text-accent text-xs rounded-full">Redis</span>
             </div>
           </div>
         </div>
@@ -489,27 +309,21 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-24">
+  <section id="contact" class="py-20 bg-secondary">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold mb-4">
-        Get In <span class="gradient-text">Touch</span>
-      </h2>
-      <p class="text-gray-500 mb-12">Feel free to reach out for collaborations or just a friendly hello</p>
-      
-      <a href="mailto:navidabbasian@gmail.com" class="inline-flex items-center gap-3 text-2xl md:text-3xl font-medium hover:text-accent transition-colors mb-12">
-        <i class="fas fa-envelope"></i>
-        navidabbasian@gmail.com
+      <h2 class="text-4xl font-bold mb-4">Get In <span class="gradient-text">Touch</span></h2>
+      <p class="text-gray-400 mb-10">Let us build something amazing together</p>
+      <a href="mailto:navidabbasian@gmail.com" class="inline-flex items-center gap-3 text-xl md:text-2xl font-bold hover:text-accent transition-colors mb-10">
+        <i class="fas fa-envelope text-accent"></i> navidabbasian@gmail.com
       </a>
-      
-      <!-- Social Links -->
-      <div class="flex items-center justify-center gap-6 mt-8">
-        <a href="https://github.com/navidAbbasian" target="_blank" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-accent hover:bg-accent/10 transition-all">
+      <div class="flex items-center justify-center gap-5 mt-6">
+        <a href="https://github.com/navidAbbasian" target="_blank" class="w-14 h-14 rounded-full border-2 border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-accent hover:bg-accent/10 transition-all hover:scale-110">
           <i class="fab fa-github text-xl"></i>
         </a>
-        <a href="https://www.linkedin.com/in/navid-abbasian/" target="_blank" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-accent hover:bg-accent/10 transition-all">
+        <a href="https://www.linkedin.com/in/navid-abbasian/" target="_blank" class="w-14 h-14 rounded-full border-2 border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-accent hover:bg-accent/10 transition-all hover:scale-110">
           <i class="fab fa-linkedin text-xl"></i>
         </a>
-        <a href="https://twitter.com/Navid_abn" target="_blank" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-accent hover:bg-accent/10 transition-all">
+        <a href="https://twitter.com/Navid_abn" target="_blank" class="w-14 h-14 rounded-full border-2 border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-accent hover:bg-accent/10 transition-all hover:scale-110">
           <i class="fab fa-twitter text-xl"></i>
         </a>
       </div>
@@ -517,43 +331,25 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-8 border-t border-white/5">
+  <footer class="py-6 border-t border-white/5">
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex flex-col md:flex-row items-center justify-between gap-4">
         <p class="text-gray-500 text-sm">2024 Navid Abbasian. All rights reserved.</p>
-        <p class="text-gray-600 text-sm">Back-End Developer | Laravel Specialist</p>
+        <p class="text-gray-600 text-sm">Senior Back-End Developer | 10+ Years Experience</p>
       </div>
     </div>
   </footer>
 
-  <!-- Mobile Menu Script -->
   <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    
-    menuBtn.addEventListener('click', function() {
-      mobileMenu.classList.toggle('hidden');
+    document.getElementById('menuBtn').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
     });
-    
-    // Close mobile menu when clicking on a link
-    const mobileLinks = mobileMenu.querySelectorAll('a');
-    mobileLinks.forEach(function(link) {
+    document.querySelectorAll('#mobileMenu a').forEach(function(link) {
       link.addEventListener('click', function() {
-        mobileMenu.classList.add('hidden');
+        document.getElementById('mobileMenu').classList.add('hidden');
       });
-    });
-    
-    // Navbar scroll effect
-    window.addEventListener('scroll', function() {
-      const nav = document.querySelector('nav');
-      if (window.scrollY > 100) {
-        nav.classList.add('shadow-lg');
-      } else {
-        nav.classList.remove('shadow-lg');
-      }
     });
   </script>
 
 </body>
-
 </html>
